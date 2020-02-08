@@ -9,6 +9,14 @@ keras 나 tensorflow import 오류나면 아나콘다프롬프트 - conda install tensorflow
 #####turtle 라이브러리 사용법)###
 t.pensize(x): 펜 크기 x로 변경
 t.color("색깔"):  특정색깔로 바꿈
+t.setheading(x)/t.seth: 거북이가 x도 방향보게함 (0도가 오른쪽,90도가 위쪽)
+t.home():거북이의 위치와 방향을 처음 상태로 돌림
+t.onkeypress(함수,"키이름"):키보드를 눌렀을 때 실행할 함수를 정함
+t.onscreenclick(함수): 마우스 버튼을 눌렀을 때 실행할 함수를 정함
+t.ontimer(함수,시간):일정한 시간이 지난 뒤 실행할 함수를 정함
+t.listen():사용자 입력이 잘 처리되도록 거북이 그래픽 창에 포커스를 줌
+t.title("창 이름"): 거북이 그래픽 창의 이름을 지정
+t.write("문자열"):현재 거북이 위치에 문자 출력
 t.penup():꼬리를 듦( 움직여도 선이 안그려짐)
 t.pendown(): 꼬리를 내림(이제 그릴 수 있음)
 t.speed():속도조절
