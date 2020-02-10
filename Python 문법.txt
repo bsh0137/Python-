@@ -5,10 +5,60 @@ keras 나 tensorflow import 오류나면 아나콘다프롬프트 - conda install tensorflow
 싱글쿼터('), 더블쿼터(")을 문자열에 넣으려면 \을 앞에 추가해야한다
 문자열 앞에 r로 감싸주면  raw라는 뜻으로 아무 의미 없는 문자열이라는 뜻
 2:5 : 2,3,4 3:8 => 3,4,5,6,7
+sm.mean_absolute_error(y_test, y_test_pred): 오차 계산(절대값)해줌(sm = sklearn.metrics)
+polynomial = PolynomialFeatures(degree=10): 10차 다항식으로 바꿈 (ex: X =>1, X, X^2, X^3 ...) 
+##########################################################################################
+# 출력 값을 그래프로 그리기
+plt.scatter(x_test, y_test, color='green')
+plt.plot(x_test,y_test_pred, color='black',linewidth =4)
+plt.xticks(())
+plt.yticks(())
+plt.show()
+##########################################################################################
 .append(): 리스트맨뒤에 값 추가
 eval("3+5"): 8출력, 문자열로 된 수식을 계산
 plt.scatter():산점도
+pickle.dump()/pickle/load(): 텍스트 파일이 아닌 경우 open 함수로 파일을 못 불러오는데 리스트나 배열자료 같이 텍스트파일이 아닌 파일을 불러오거나 저장할 때 사용 
+regressor = linear_model.LinearRegression(): 선형 회귀 분석 모델 오브젝트 생성하기
+round(x,2): x를 소수 둘째 자리까지 표기
+np.loadtxt("파일이름.txt', delimiter =',' ) : txt 파일을 구분자 ,로 하여 불러옴
 head():데이터 짧게 보여줌
+preprocessing.Binarizer(threshold=2.1).transform(input_data): input 데이터를 임계값 2.1을 기준으로 이진화 변환함 ( from sklearn import preprocessing)
+data.mean(axis=0)/data.std(axis=0) : 행을 기준으로 데이터의 평균/표준편차 알려줌
+preprocessing.scale(data): data를 스케일링해줌( 평균0, 표준편차 1에 가깝게)
+data_normalized_l1 = preprocessing.normalize(data, norm='l1') : 정규화 함수
+#매핑 관계 출력
+print("\nLabel mapping:")
+for i, item in enumerate(encoder.classes_):
+    print(item, '-->', i)
+# 레이블 인코딩
+test_labels = ['green', 'red', 'black']
+encoded_values = encoder.transform(test_labels)
+print('\nLabels =', test_labels)
+print("Encoded values =", list(encoded_values))
+print(encoded_values)
+type(encoded_values)
+#숫자 값 디코딩
+encoded_values = [3, 0, 4, 1]
+decoded_list = encoder.inverse_transform(encoded_values)
+print('\nEncoded values =', encoded_values)
+print("Decoded labels =", list(decoded_list))
+###############################################레이블 인코딩#####################################################################
+#레이블 인코딩
+import numpy as np
+from sklearn import preprocessing
+
+#샘플 입력 레이블
+input_labels = ['red','black', 'red', 'green', 'black', 'yellow', 'white']
+
+#레이블 인코더 생성후 앞에서 정의한 레이블로 학습시키기
+encoder = preprocessing.LabelEncoder()
+encoder.fit(input_labels)
+####################################################################################################################
+data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0,1))
+data_scaled_minmax = data_scaler_minmax.fit_transform(input_data)
+print("\nMin max scaled data:\n", data_scaled_minmax)
+각 행마다 최소값을 0, 최대값을 1로 나머지는 상대적인 값으로 나타낸 것
 ###############################################################turtle 라이브러리 사용법)################################
 t.pensize(x): 펜 크기 x로 변경
 t.color("색깔"):  특정색깔로 바꿈
@@ -41,6 +91,10 @@ while True: 영원히 반복
 t.setheading(10):거북이가 방향을 a각도 돌림
 ####################################################################################################################
 random.choice():리스트에 있는 자료들 중 하나 임의로 선택하는 함수
+X.to_csv("이름.csv"):X를 "이름"csv파일로 저장
+plt.plot(): 그래프
+plt.scatter(): 산점도
+plt.show():그래프를 보여주는 함수
 format(x, ".2f"):x를 소수점 둘째 자리까지만 출력
 pd.read_csv("파일.csv"): csv 읽어오기
 pd.read_csv("파일이름.csv",index_col = 0): csv 파일을 불러오고 첫번째 컬럼을 인덱스열로 봄
