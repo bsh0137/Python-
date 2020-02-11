@@ -4,7 +4,19 @@ keras 나 tensorflow import 오류나면 아나콘다프롬프트 - conda install tensorflow
 %:나머지
 싱글쿼터('), 더블쿼터(")을 문자열에 넣으려면 \을 앞에 추가해야한다
 문자열 앞에 r로 감싸주면  raw라는 뜻으로 아무 의미 없는 문자열이라는 뜻
+np.argmax(): 최대값의 인덱스 구함
+np.argmin(): 최소값의 인덱스 구함
+A<B : 집합 A가 집합 B의 부분집합인가? 묻는 문장
+##########################################################################################
+train데이터 test데이터 나누는 함수 라이브러리
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random_state=3)
+===> x_train, x_test, y_train, y_test 순서 지켜야하는 것 같다.
+##########################################################################################
 2:5 : 2,3,4 3:8 => 3,4,5,6,7
+from sklearn.model_selection import cross_val_score: 크로스 밸리데이션(교차검증)가능케하는 라이브러리
+from sklearn.model_selection import train_test_split: train, test 셋 나눠주는 함수 import 함
+plt.title("제목"): 그래프 제목 설정하는 함수
 sm.mean_absolute_error(y_test, y_test_pred): 오차 계산(절대값)해줌(sm = sklearn.metrics)
 polynomial = PolynomialFeatures(degree=10): 10차 다항식으로 바꿈 (ex: X =>1, X, X^2, X^3 ...) 
 ##########################################################################################
@@ -27,6 +39,9 @@ preprocessing.Binarizer(threshold=2.1).transform(input_data): input 데이터를 임�
 data.mean(axis=0)/data.std(axis=0) : 행을 기준으로 데이터의 평균/표준편차 알려줌
 preprocessing.scale(data): data를 스케일링해줌( 평균0, 표준편차 1에 가깝게)
 data_normalized_l1 = preprocessing.normalize(data, norm='l1') : 정규화 함수
+datasets.load_boston(): 보스턴 집값 샘플자료
+shuffle(data.data, data.target, random_state = 7): 데이터 섞어줌
+####################################################################################################################
 #매핑 관계 출력
 print("\nLabel mapping:")
 for i, item in enumerate(encoder.classes_):
@@ -47,10 +62,8 @@ print("Decoded labels =", list(decoded_list))
 #레이블 인코딩
 import numpy as np
 from sklearn import preprocessing
-
 #샘플 입력 레이블
 input_labels = ['red','black', 'red', 'green', 'black', 'yellow', 'white']
-
 #레이블 인코더 생성후 앞에서 정의한 레이블로 학습시키기
 encoder = preprocessing.LabelEncoder()
 encoder.fit(input_labels)
@@ -64,13 +77,14 @@ t.pensize(x): 펜 크기 x로 변경
 t.color("색깔"):  특정색깔로 바꿈
 t.setheading(x)/t.seth: 거북이가 x도 방향보게함 (0도가 오른쪽,90도가 위쪽)
 t.home():거북이의 위치와 방향을 처음 상태로 돌림
+t.setup(width=,height=): Turtle Graphic 창의 크기 설정	
 t.onkeypress(함수,"키이름"):키보드를 눌렀을 때 실행할 함수를 정함
 t.onscreenclick(함수): 마우스 버튼을 눌렀을 때 실행할 함수를 정함
 t.ontimer(함수,시간):일정한 시간이 지난 뒤 실행할 함수를 정함
 t.listen():사용자 입력이 잘 처리되도록 거북이 그래픽 창에 포커스를 줌
 t.title("창 이름"): 거북이 그래픽 창의 이름을 지정
 t.write("문자열"):현재 거북이 위치에 문자 출력
-t.penup():꼬리를 듦( 움직여도 선이 안그려짐)
+t.penup()/t.up():꼬리를 듦( 움직여도 선이 안그려짐)
 t.pendown(): 꼬리를 내림(이제 그릴 수 있음)
 t.speed():속도조절
 t.fillcolor("색이름"): 도형 내부 칠하는 색 바꿈
@@ -88,6 +102,7 @@ t.reset(): 화면지우고 거북이도 원래 자리와 상태로 되돌림
 t.begin_fill():도형내부를 칠할 준비함
 t.end_fill(): 도형 내부 색칠함
 while True: 영원히 반복
+t.clear():화면에 있는 이름이나 글자 제거
 t.setheading(10):거북이가 방향을 a각도 돌림
 ####################################################################################################################
 random.choice():리스트에 있는 자료들 중 하나 임의로 선택하는 함수
