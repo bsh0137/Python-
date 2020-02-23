@@ -6,7 +6,16 @@ keras 나 tensorflow import 오류나면 아나콘다프롬프트 - conda install tensorflow
 문자열 앞에 r로 감싸주면  raw라는 뜻으로 아무 의미 없는 문자열이라는 뜻
 np.argmax(): 최대값의 인덱스 구함
 np.argmin(): 최소값의 인덱스 구함
+unique(x) : 배열 내 중복된 원소 제거 후 유일한 원소를 정렬하여 반환
 A<B : 집합 A가 집합 B의 부분집합인가? 묻는 문장
+StandardScaler(): nomalization, 평균0 표편 1에 가깝게 만듦
+replace(old, new, [count]) -> replace("찾을값", "바꿀값", [바꿀횟수])
+plt.subplots(2, 1, figsize = (10,7)):figsize 10x7인 그래프를 2행 1열형태로 만듦
+tolist():배열을 목록으로 변환
+with문: 주로 파일을 처리할 때 사용. with 블록을 벗어나면 파일이 자동으로 닫힘
+filter(regex=""): ""글자가 포함된 것을 필터링하는 함수인 것 같다.
+dropna(): 결측치 있는 행 제거
+drop_duplicate(): 중복된 행 제거
 ##########################################################################################
 train데이터 test데이터 나누는 함수 라이브러리
 from sklearn.model_selection import train_test_split
@@ -159,6 +168,7 @@ ndarray.shape(): array의 차원
 np.ones((2,3)):[[1,1,1],[1,1,1]]
 range(a,b): a,b 범위사이의 정수 값 반환
 normalizeRows(): 행별로 표준화해주는 함수
+import matplotlib.pyplot as plt
 ####################################################################################################################################
 if 조건:
 수행할 명령문
